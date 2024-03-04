@@ -5,8 +5,8 @@ import mysql.connector
 db_config = {
     'host': "localhost",
     'user': "root",
-    'password': "root",
-    'database': "sm52_arduino"
+    'password': "",
+    'database': "sm52_arduino1"
 }
 
 # Intentar conectar a la base de datos

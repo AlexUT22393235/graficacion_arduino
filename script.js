@@ -28,7 +28,7 @@ $(document).ready(function () {
 
                 parsedData.forEach(function (row) {
                     labels.push(row.led_color);
-                    sensorData.push(row.mensaje);
+                    sensorData.push(parseFloat(row.mensaje));
                 });
 
                 chart.data.labels = labels;

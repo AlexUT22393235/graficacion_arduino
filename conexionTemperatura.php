@@ -11,14 +11,19 @@ try {
     // Configura el PDO error mode a excepción
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Consulta SQL para obtener los últimos datos
-    $sql = "SELECT mensaje, led_color, fecha FROM tb_puerto_serial ORDER BY id_puerto_serial DESC LIMIT 100";
+    // Consulta SQL para obtener los datos del sensor ultrasonico
+ 
+
+    // Consulta SQL para obtener los datos del sensor de temperatura
+    $sql = "SELECT id_temperatura, temperatura FROM temperatura ORDER BY id_temperatura DESC LIMIT 100";
     $stmt = $pdo->query($sql);
 
+    // Combina los resultados de ambas consultas en un solo array
     $data = [];
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         $data[] = $row;
     }
+    
 
     // Enviar datos en formato JSON
     echo json_encode($data);
